@@ -8,6 +8,7 @@ import java.util.List;
 public class CollectionSortExample {
     public static void main(String[] args) {
         example01(); 
+        example02(); 
     }
     
     public static void example01() {
@@ -35,8 +36,8 @@ public class CollectionSortExample {
 
     public static void example02() {
         Employee emp1 = new Employee("12345", "darryl ng", "ss", "lecturer", "darryl@nus.edu", 20000); 
-        Employee emp2 = new Employee("1234", "gab eng", "s", "lecturer", "gab@nus.edu", 10000);
-        Employee emp3 = new Employee("123", "thomas tan", "ssa", "lecturer", "thomas@nus.edu", 21000);
+        Employee emp2 = new Employee("23456", "thomas eng", "s", "lecturer", "thomas@nus.edu", 10000);
+        Employee emp3 = new Employee("00434", "gab tan", "ssa", "lecturer", "gab@nus.edu", 21000);
 
         List<Employee> employees = new ArrayList<Employee>(); 
         employees.add(emp1); 
@@ -45,9 +46,14 @@ public class CollectionSortExample {
 
         System.out.println("employees before sorting = " + employees);
 
+        //sorting by name 
         Collections.sort(employees); 
 
-        System.out.println(employees);
+        System.out.println("employees after sorting = " + employees);
+
+        //Sorting using comparator and lambda
+        employees.sort(Comparator.comparing(e -> e.getSalary()));
+        System.out.println("Sorted employee (salary) + " + employees); 
 
     }
     
